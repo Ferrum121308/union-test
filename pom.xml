@@ -15,7 +15,10 @@
     <artifactId>union-test</artifactId>
     <version>1.0.0</version>
 
-    <name>综合测试</name>
+    <description>综合测试</description>
+    <modules>
+        <module>test-common</module>
+    </modules>
     <packaging>pom</packaging>
 
     <properties>
@@ -24,6 +27,8 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <mysql-connector.version>8.0.32</mysql-connector.version>
+        <hutool.version>5.8.8</hutool.version>
     </properties>
 
     <dependencies>
@@ -48,7 +53,35 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
         </dependency>
+
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
+                <version>${mysql-connector.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-bom</artifactId>
+                <type>pom</type>
+                <scope>import</scope>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ferrum</groupId>
+                <artifactId>test-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <pluginManagement>
