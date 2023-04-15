@@ -3,6 +3,7 @@ package com.ferrum.common.exception;
 import com.ferrum.common.enums.ResultCodeEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 描述：自定义异常
@@ -12,6 +13,7 @@ import lombok.EqualsAndHashCode;
  * @version 1.0
  */
 
+@Slf4j
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class BusinessException extends RuntimeException{
