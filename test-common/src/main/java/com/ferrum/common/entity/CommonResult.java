@@ -4,8 +4,6 @@ import com.ferrum.common.enums.ResultCodeEnum;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 /**
  * 描述：统一返回体
  * 创建时间： 2023/4/14 17:30
@@ -28,24 +26,24 @@ public class CommonResult<T> {
 		this.message = resultCode.msg();
 	}
 
-	public CommonResult<T> success() {
+	public static <T> CommonResult<T> success() {
 		return new CommonResult<>(ResultCodeEnum.SUCCESS);
 	}
 
-	public CommonResult<T> success(String msg) {
+	public static <T> CommonResult<T> success(String msg) {
 		CommonResult<T> result = new CommonResult<>();
 		result.setCode(ResultCodeEnum.SUCCESS.code());
 		result.setMessage(msg);
 		return result;
 	}
 
-	public CommonResult<T> success(T data) {
+	public static <T> CommonResult<T> success(T data) {
 		CommonResult<T> result = new CommonResult<>(ResultCodeEnum.SUCCESS);
 		result.setData(data);
 		return result;
 	}
 
-	public CommonResult<T> success(String msg, T data) {
+	public static <T> CommonResult<T> success(String msg, T data) {
 		CommonResult<T> result = new CommonResult<>();
 		result.setCode(ResultCodeEnum.SUCCESS.code());
 		result.setMessage(msg);
@@ -53,18 +51,18 @@ public class CommonResult<T> {
 		return result;
 	}
 
-	public CommonResult<T> failed() {
+	public static <T> CommonResult<T> failed() {
 		return new CommonResult<>(ResultCodeEnum.FAILED);
 	}
 
-	public CommonResult<T> failed(String msg) {
+	public static <T> CommonResult<T> failed(String msg) {
 		CommonResult<T> result = new CommonResult<>();
 		result.setCode(ResultCodeEnum.FAILED.code());
 		result.setMessage(msg);
 		return result;
 	}
 
-	public CommonResult<T> failed(ResultCodeEnum resultCode) {
+	public static <T> CommonResult<T> failed(ResultCodeEnum resultCode) {
 		return new CommonResult<>(resultCode);
 	}
 
