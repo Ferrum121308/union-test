@@ -22,16 +22,19 @@ public class BusinessException extends RuntimeException{
 	private final String msg;
 
 	public BusinessException(Integer code, String msg) {
+		super(msg);
 		this.code = code;
 		this.msg = msg;
 	}
 
 	public BusinessException(String msg) {
+		super(msg);
 		this.code = ResultCodeEnum.FAILED.code();
 		this.msg = msg;
 	}
 
 	public BusinessException(ResultCodeEnum resultCode) {
+		super(resultCode.msg());
 		this.code = resultCode.code();
 		this.msg = resultCode.msg();
 	}

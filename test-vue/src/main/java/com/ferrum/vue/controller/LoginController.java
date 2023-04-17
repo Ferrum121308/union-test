@@ -28,11 +28,13 @@ public class LoginController {
 	@CrossOrigin
 	@PostMapping("/login")
 	public CommonResult<LoginUserDTO> login(@Validated @RequestBody LoginUserVO user) {
-//		LoginUserDTO userInfo = new LoginUserDTO();
-		throw new BusinessException("测试错误返回");/*
+		LoginUserDTO userInfo = new LoginUserDTO();
+		if (user.getUsername().equals("111")) {
+			throw new BusinessException("测试错误返回");
+		}
 		log.info(SystemConstant.LOG_PREFIX + "接收参数：{}", user);
 		userInfo.setToken(RandomUtil.randomString(18));
-		return CommonResult.success(userInfo);*/
+		return CommonResult.success(userInfo);
 	}
 
 }

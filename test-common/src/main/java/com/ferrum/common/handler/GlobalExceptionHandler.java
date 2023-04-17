@@ -19,10 +19,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
 
 	@ExceptionHandler(BusinessException.class)
-	public CommonResult<String> handleBusinessException(BusinessException e) {
+	public CommonResult<String> handleBusinessException(BusinessException exception) {
 		log.info("进入异常处理方法");
-		log.error("业务异常：" + e.getMsg());
-		return CommonResult.failed(e.getMsg());
+		log.error("业务异常：" + exception.getMsg());
+		return CommonResult.failed(exception.getMsg());
 	}
 
 	@ExceptionHandler(RuntimeException.class)
@@ -33,7 +33,7 @@ public class GlobalExceptionHandler {
 
 	@ExceptionHandler(NullPointerException.class)
 	public CommonResult<Void> handleNullPointerException(NullPointerException exception) {
-	    log.error("空指针异常：{}", exception.getMessage());
+		log.error("空指针异常：{}", exception.getMessage());
 		return CommonResult.failed(exception.getMessage());
 	}
 
